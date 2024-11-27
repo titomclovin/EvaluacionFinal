@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - Descuento en compra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: url('/static/images/fondo_ejercicio1.jpg') no-repeat center center/cover;
+            color: #00bcd4;
+            text-align: center;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #121212;
+        }
+
+        h1 {
+            font-size: 3em;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #00bcd4;
+            text-shadow: 0 0 20px #00bcd4, 0 0 30px #ff4081;
+            margin-bottom: 50px;
+        }
+
+        form {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #ff4081;
+            width: 40%;
+        }
+
+        input[type="text"], input[type="number"] {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+            border: 2px solid #ff4081;
+            border-radius: 5px;
+            background-color: #222;
+            color: #fff;
+            font-size: 1em;
+        }
+
+        input[type="submit"] {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            background-color: #00bcd4;
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff4081;
+        }
+
+        .result {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 10px;
+            border: 2px solid #ff4081;
+            width: 40%;
+            color: #ffd700;
+        }
+
+        .result p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 1: Descuento en Compra</h1>
+    <form method="POST">
+        <input type="text" name="nombre" placeholder="Ingresa tu nombre" required><br>
+        <input type="number" name="edad" placeholder="Ingresa tu edad" required><br>
+        <input type="number" name="tarros" placeholder="Cantidad de tarros de pintura" required><br>
+        <input type="submit" value="Calcular Total">
+    </form>
+
+    {% if nombre %}
+        <div class="result">
+            <p><strong>Nombre del cliente:</strong> {{ nombre }}</p>
+            <p><strong>Total sin descuento:</strong> ${{ total_sin_descuento }}</p>
+            <p><strong>Descuento:</strong> ${{ descuento }}</p>
+            <p><strong>Total a pagar:</strong> ${{ total_con_descuento }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
